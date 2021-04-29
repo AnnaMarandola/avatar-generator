@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./assets/scss/style.scss";
-import { Button, Card } from "ui-neumorphism";
+import { Button, Card, CardHeader, Typography } from "ui-neumorphism";
 import "ui-neumorphism/dist/index.css";
 
 function App() {
@@ -42,8 +42,13 @@ function App() {
 
   return (
     <div className="app">
+      <CardHeader className="header-mobile">
+        <Typography>
+          <h1>Avatar creator</h1>
+        </Typography>
+      </CardHeader>
       <div className="container">
-        <Card className="avatar-card" inset width={750} height={1000}>
+        <Card className="avatar-card" inset width={758} height={900}>
           <div className="avatar-body">
             {Object.keys(dressupState).map((item) => (
               <div
@@ -54,28 +59,37 @@ function App() {
             ))}
           </div>
         </Card>
-        <div className="buttons">
-          <Card className="buttons" inset height={300}>
-            {Object.keys(dressupState).map((item) => (
-              <Button
-                //  rounded
-                inset
-                color="var(--secondary)"
-                key={item}
-                id={"next" + item}
-                onClick={() => next(item)}
-              >
-                {item}
-              </Button>
-            ))}
-            <Button
-              color="var(--primary)"
-              id="randomize"
-              onClick={() => randomize()}
-            >
-              RANDOMIZE
-            </Button>
+
+        <div className="right-container">
+        <Card inset className="header-laptop">
+          <Typography>
+            <h1 className="title" >Avatar creator</h1>
+          </Typography>
           </Card>
+
+          <div className="buttons">
+            <Card className="buttons" inset>
+              {Object.keys(dressupState).map((item) => (
+                <Button
+                  //  rounded
+                  inset
+                  color="var(--secondary)"
+                  key={item}
+                  id={"next" + item}
+                  onClick={() => next(item)}
+                >
+                  {item}
+                </Button>
+              ))}
+              <Button
+                color="var(--primary)"
+                id="randomize"
+                onClick={() => randomize()}
+              >
+                RANDOMIZE
+              </Button>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
