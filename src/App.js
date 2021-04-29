@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./assets/scss/style.scss";
-import { Button, Card, CardContent } from "ui-neumorphism";
+import { Button, Card } from "ui-neumorphism";
 import "ui-neumorphism/dist/index.css";
 
 function App() {
