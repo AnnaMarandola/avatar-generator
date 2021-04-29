@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.avatar-card {
+    margin-left: 1rem;
+}
+
+
+.avatar-body {
+    width: 794px;   /* width of actual image */
+    height: 1123px; /* height of actual image */
+    background-image: url("../img/body.png");
+    background-repeat: no-repeat;
+    margin-top: -8rem;
+    padding-bottom: -5rem;
+}
+
+
+.buttons {
+    display: flex;
+    width: 770px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0.3rem;
+}
+
+#eyes, #ears, #nose, #mouth, #clothes {
+    position: absolute;
+    width: 794px;   /* width of actual image */
+    height: 1123px; /* height of actual image */
+}
+
+// update this map when new items or categories are added
+$items: ("eyes": 9, "ears": 3, "mouth": 4, "nose": 3, "clothes": 3);
+
+@each $item, $total in $items {
+
+    @for $i from 1 through $total {
+        .#{$item}#{$i} {
+            background-image: url(../img/#{$item}/#{$item}#{$i}.png);
+        }
+    }
+}
+
+
+@each $item, $total in $items {
+
+
+    #next#{$item}{
+        margin-top: 3rem;
+        min-width: 13rem;
+        height: 5rem;
+    }
+    
+}
+
+#randomize {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    min-width: 13rem;
+    height: 5rem;
+}
